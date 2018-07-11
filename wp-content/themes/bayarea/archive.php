@@ -13,37 +13,39 @@ get_header();
 	<div class="masthead masthead-home">
 		<?php get_template_part( 'template-parts/menu' ); ?>
 		<header class="entry-header">
-			<h1 class="entry-title display-1"><?php the_archive_title(); ?></h1>
+			<h1 class="entry-title display-1">I see you, <?php the_archive_title(); ?></h1>
 		</header><!-- .entry-header -->
 	</div>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
-		<?php if ( have_posts() ) : ?>
+			<div class="container">
+				<div class="row">
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+					<?php if ( have_posts() ) : ?>
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+						<?php
+						/* Start the Loop */
+						while ( have_posts() ) :
+							the_post();
+							?>
+							<div class="col-md-4 col-xs-12">
+								<a class="place-block" href="<?php the_permalink(); ?>" style="background-image: linear-gradient(-180deg, rgba(0,0,0, 0) 53%, #000 100%), url(<?php echo get_the_post_thumbnail_url($post, 'block'); ?>)">
+									<div class="place-block-title"><?php the_title(); ?></div>
+								</a>
+							</div>
 
-			endwhile;
+						<?php endwhile;
 
-			the_posts_navigation();
+					else :
 
-		else :
+						get_template_part( 'template-parts/content', 'none' );
 
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
+					endif;
+					?>
+				</div>
+			</div>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

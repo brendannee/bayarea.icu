@@ -215,7 +215,7 @@ function places_post_type() {
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
-		'has_archive'           => false,
+		'has_archive'           => true,
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'page',
@@ -225,5 +225,35 @@ function places_post_type() {
 
 }
 add_action( 'init', 'places_post_type', 0 );
+
+add_filter( 'get_the_archive_title', function ($title) {
+
+    if ( is_category() ) {
+        $title = single_cat_title( '', false );
+    } elseif ( is_tag() ) {
+        $title = single_tag_title( '', false );
+    } elseif ( is_author() ) {
+        $title = '<span class="vcard">' . get_the_author() . '</span>' ;
+    }
+
+    return $title;
+});
+
+add_filter('pre_get_posts', 'query_post_type');
+function query_post_type($query) {
+  if(is_category() || is_tag()) {
+    $post_type = get_query_var('post_type');
+    if($post_type):
+        $post_type = $post_type;
+    else:
+        $post_type = array('post', 'place', 'nav_menu_item');
+				$query->set('posts_per_page', -1 );
+		endif;
+
+    $query->set('post_type', $post_type);
+
+    return $query;
+  }
+}
 
 define('ACF_EARLY_ACCESS', '5');

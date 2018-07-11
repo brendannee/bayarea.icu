@@ -10,13 +10,6 @@
 get_header();
 ?>
 
-	<div class="masthead masthead-home">
-		<?php get_template_part( 'template-parts/menu' ); ?>
-		<header class="entry-header">
-			<h1 class="entry-title display-1"><?php the_title(); ?></h1>
-		</header><!-- .entry-header -->
-	</div>
-
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
