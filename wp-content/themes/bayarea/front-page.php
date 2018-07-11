@@ -30,7 +30,7 @@ get_header();
 							while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 								<!-- 760 x 500 -->
 								<div class="col-md-4 col-xs-12">
-									<a class="place-block" href="<?php the_permalink(); ?>" style="background-image: url(<?php echo get_the_post_thumbnail_url($post, 'block'); ?>)">
+									<a class="place-block" href="<?php the_permalink(); ?>" style="background-image: linear-gradient(-180deg, rgba(0,0,0, 0) 53%, #000 100%), url(<?php echo get_the_post_thumbnail_url($post, 'block'); ?>)">
 										<div class="place-block-title"><?php the_title(); ?></div>
 									</a>
 								</div>
