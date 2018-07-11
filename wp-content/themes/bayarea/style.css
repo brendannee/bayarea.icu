@@ -979,6 +979,10 @@ body {
 	/* font-family: 'Roboto', sans-serif; */
 }
 
+h1, h2, h3, h4, h5 {
+	font-family: 'Permanent Marker', cursive;
+}
+
 .masthead {
 	height: 90vh;
 	max-height: 80rem;
@@ -1007,6 +1011,7 @@ body {
 	z-index: 1;
 	border: 1px solid rgb(10, 219, 56);
 	text-align: center;
+	font-family: 'Permanent Marker', cursive;
 }
 
 .masthead-logo:hover {
