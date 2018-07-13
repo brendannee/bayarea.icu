@@ -8,7 +8,7 @@
  */
 
 ?>
-<div class="masthead masthead-<?php echo get_field('featured_image_color'); ?>">
+<div class="masthead masthead-<?php the_field('featured_image_color'); ?>">
 
 	<div class="masthead-image" style="background-image: url(<?php echo get_the_post_thumbnail_url($post, 'poster'); ?>)"></div>
 	<?php get_template_part( 'template-parts/menu' ); ?>

@@ -25,7 +25,7 @@ get_header();
 					<?php the_content();?>
 					<div class="row">
 						<?php
-						$the_query = new WP_Query( array('post_type' => 'place') );
+						$the_query = new WP_Query( array('post_type' => 'place', 'orderby' => 'title', 'order' => 'ASC') );
 						if ( $the_query->have_posts() ) :
 							while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 								<div class="col-md-4 col-xs-12">
