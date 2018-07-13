@@ -80,12 +80,15 @@ if ( ! function_exists( 'bayarea_setup' ) ) :
 			'flex-height' => true,
 		) );
 
+		add_image_size( 'xl', 2200, 2200 );
 		add_image_size( 'poster', 2000, 1325, true );
 		add_image_size( 'block', 760, 500, true );
 
 	}
 endif;
 add_action( 'after_setup_theme', 'bayarea_setup' );
+
+add_filter( 'max_srcset_image_width', 2200);
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
