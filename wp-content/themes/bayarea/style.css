@@ -523,6 +523,10 @@ table {
 	width: 100%;
 }
 
+.wp-block-image {
+	margin: 0 auto;
+}
+
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
@@ -1117,6 +1121,7 @@ h1, h2, h3, h4, h5 {
 	background-size: cover;
 	position: relative;
 	transition: box-shadow 400ms ease, transform 400ms ease;
+	margin-bottom: 30px;
 }
 
 .place-block:hover {
